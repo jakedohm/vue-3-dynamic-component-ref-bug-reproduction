@@ -1,10 +1,14 @@
 <template>
   <div id="app">
+    <!-- With ref -->
     <div>Count is: {{ count }}</div>
-
     <Heading as="h1">Count is: {{ count }}</Heading>
-
     <button @click="increment">Increment</button>
+
+    <!-- With data -->
+    <div>Count is: {{ dataCount }}</div>
+    <Heading as="h1">(data) Count is: {{ dataCount }}</Heading>
+    <button @click="dataIncrement">Increment (data)</button>
   </div>
 </template>
 
@@ -23,6 +27,16 @@ export default {
     }
 
     return { count, increment }
+  },
+  data() {
+    return {
+      dataCount: 0,
+    }
+  },
+  methods: {
+    dataIncrement() {
+      this.dataCount++
+    },
   },
 }
 </script>
